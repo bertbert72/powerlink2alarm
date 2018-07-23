@@ -1,5 +1,6 @@
 import requests
 
+
 class Powerlink2(object):
     def __init__(self, hostname, user, password):
         self.__user = user
