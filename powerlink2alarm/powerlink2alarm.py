@@ -168,7 +168,16 @@ class Powerlink2(object):
                         configuration = status['configuration']
                         for device in configuration:
                             print('Device: {0}'.format(device))
-                    #    if 'sensors' in configuration:
+                        if 'sensors' in configuration:
+                            for sensor in configuration['sensors']:
+                                sensor_info = {
+                                    'name': sensor['name'],
+                                    'type': sensor['type'],
+                                    'location': sensor['location'],
+                                    'alarm': None,
+                                }
+                                self.__sensors[sensor['index']] = sensor_info
+                            print('Sensors: {0}', self.__sensors)
                     #        self.__sensors = configuration['sensors']
                     #    if 'system' in configuration:
                     #        self.__system = configuration['system']
